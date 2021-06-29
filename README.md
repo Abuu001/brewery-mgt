@@ -1,1 +1,1 @@
-# brewery-mgt
+# brewery-mgt microservice app
