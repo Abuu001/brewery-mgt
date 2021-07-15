@@ -2,6 +2,7 @@ package com.lugonzo.msscbeerservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lugonzo.msscbeerservice.model.BeerDto;
+import com.lugonzo.msscbeerservice.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.math.BigDecimal;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -46,7 +49,7 @@ class BeerControllerTest {
 
     @Test
     void saveBeer() throws Exception {
-        BeerDto beerDto= BeerDto.builder().build();
+        BeerDto beerDto= getValidBeerDto.get();
         beerDto.setId(null);
         String beerDtoJSON = objectMapper.writeValueAsString(beerDto);
 
@@ -58,7 +61,7 @@ class BeerControllerTest {
 
     @Test
     void updateBeer() throws Exception {
-        BeerDto beerDto= BeerDto.builder().build();
+        BeerDto beerDto= getValidBeerDto.get();
         beerDto.setId(null);
         String beerDtoJSON = objectMapper.writeValueAsString(beerDto);
 
@@ -68,4 +71,20 @@ class BeerControllerTest {
                 .andExpect(status().isNoContent());
 
     }
+
+   /* BeerDto getValidBeerDto(){
+        return BeerDto.builder()
+                .price(new BigDecimal("2.99"))
+                .beerName("My beer")
+                .beerStyle(BeerStyleEnum.ALE)
+                .upc(1212121212121L)
+                .build();
+    }*/
+
+    static Supplier<BeerDto> getValidBeerDto = ()->  BeerDto.builder()
+            .price(new BigDecimal("2.99"))
+            .beerName("My beer")
+            .beerStyle(BeerStyleEnum.ALE)
+            .upc(1212121212121L)
+            .build();
 }
