@@ -10,14 +10,14 @@ import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import java.util.UUID;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class BeerDto {
 
     @Null
-    private UUID id;
+    private UUID Id;
 
     @NotBlank
     private String beerName;

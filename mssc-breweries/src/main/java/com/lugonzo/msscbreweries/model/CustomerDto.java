@@ -5,8 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.beans.Transient;
-import java.util.UUID;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,11 @@ import java.util.UUID;
 @Builder
 public class CustomerDto {
 
-    private UUID id;
+
+    private UUID Id;
+
+    @NotBlank
+    @Size(min =3 ,max =20 )
     private String name;
     private int age;
     private Boolean isAdult;
