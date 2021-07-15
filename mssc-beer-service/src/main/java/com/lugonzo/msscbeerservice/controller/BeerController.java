@@ -3,6 +3,7 @@ package com.lugonzo.msscbeerservice.controller;
 import com.lugonzo.msscbeerservice.model.BeerDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -18,14 +19,14 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity saveBeer(@RequestBody BeerDto newBeer){
+    public ResponseEntity saveBeer(@RequestBody @Validated BeerDto newBeer){
         //TODO impl
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
     public ResponseEntity updateBeer(@PathVariable("beerId") UUID beerId,
-                                   @RequestBody BeerDto updateBeer ){
+                                   @RequestBody @Validated BeerDto updateBeer ){
         //TODO impl
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
