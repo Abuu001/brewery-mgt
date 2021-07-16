@@ -1,6 +1,5 @@
 package com.lugonzo.msscbeerservice.service;
 
-import com.lugonzo.msscbeerservice.domain.Beer;
 import com.lugonzo.msscbeerservice.model.BeerDto;
 import com.lugonzo.msscbeerservice.repository.BeerRepository;
 import lombok.RequiredArgsConstructor;
