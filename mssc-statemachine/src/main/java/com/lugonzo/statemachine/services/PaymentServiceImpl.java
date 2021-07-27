@@ -6,8 +6,7 @@ import com.lugonzo.statemachine.domain.PaymentState;
 import com.lugonzo.statemachine.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.statemachine.StateMachine;
-import org.springframework.statemachine.support.DefaultStateMachineContext;
-import org.springframework.stereotype.Service;
+ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
