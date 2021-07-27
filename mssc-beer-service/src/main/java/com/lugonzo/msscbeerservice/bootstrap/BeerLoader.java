@@ -33,13 +33,17 @@ public class BeerLoader implements CommandLineRunner {
 
         log.info("#########   Inserting dummy data ######## ");
         if(beerRepository.count() == 0){
-            beerRepository.save(BeerDto.builder()
+
+            var beer1 = BeerDto.builder()
                     .id(UUID.randomUUID())
                     .beerName("Mongo pops")
                     .beerStyle(BeerStyleEnum.IPA)
                     .upc(BEER_1_UPC)
                     .price(new BigDecimal("12.95"))
-                    .build());
+                    .build();
+            beerRepository.save(beer1);
+
+            log.info(beer1.toString());
 
             beerRepository.save(BeerDto.builder()
                     .id(UUID.randomUUID())
