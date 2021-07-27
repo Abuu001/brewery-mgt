@@ -5,14 +5,14 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class GoogleConf {
+//@Configuration
+public class GoogleConfig {
 
     @Bean
-    public RouteLocator googleConfig(RouteLocatorBuilder builder){
+    public RouteLocator googleConf(RouteLocatorBuilder builder){
        return builder.routes()
                .route(r->r.path("/googlesearch")
-               .uri("https://google.com"))
+               .uri("https://scholar.google.com/"))
                .build();
     }
 }
