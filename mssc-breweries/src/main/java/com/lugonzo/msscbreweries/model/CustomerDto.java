@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 public class CustomerDto {
 
 
-    private UUID Id;
+    private UUID id;
 
     @NotBlank
     @Size(min =3 ,max =20 )
