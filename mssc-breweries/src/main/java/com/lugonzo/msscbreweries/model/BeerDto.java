@@ -17,7 +17,7 @@ import java.util.UUID;
 public class BeerDto {
 
     @Null
-    private UUID Id;
+    private UUID id;
 
     @NotBlank
     private String beerName;
